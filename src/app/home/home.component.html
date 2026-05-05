@@ -1,0 +1,551 @@
+<div class="body_conainer">
+  <div class="sticky-top navbar-elixir" style="position: fixed; width: 100%">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" (click)="scroll(home)" style="cursor: pointer">
+          <img
+            href="#"
+            src="assets/img/company_logo/comeds.png"
+            width="120px"
+            height="29px"
+            alt="logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler p-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#primaryNavbarCollapse"
+          aria-controls="primaryNavbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="hamburger hamburger--emphatic"
+            ><span class="hamburger-box"
+              ><span class="hamburger-inner"></span></span
+          ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav py-3 py-lg-0 mt-1 mb-2 my-lg-0 ms-lg-n1">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                style="cursor: pointer"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                role="button"
+                (click)="scroll(home)"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle dropdown-indicator"
+                href="JavaScript:void(0)"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Solutions</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <button (click)="scroll(itsolutions)" class="dropdown-item">
+                    IT Solutions
+                  </button>
+                </li>
+                <li>
+                  <button (click)="scroll(mechsolutions)" class="dropdown-item">
+                    Mechanical Solutions
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle dropdown-indicator"
+                href="JavaScript:void(0)"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Staffing</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <button class="dropdown-item" (click)="scroll(itstaffing)">
+                    IT Staffing
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" (click)="scroll(mechstaffing)">
+                    Mechanical Staffing
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle dropdown-indicator"
+                href="JavaScript:void(0)"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Support</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" [routerLink]="['help']">Help</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['communities']"
+                    >Communities</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['blogs']">Blogs </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['events']">Events</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['customers']"
+                    >Customer Stories</a
+                  >
+                </li>
+              </ul>
+            </li> -->
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle dropdown-indicator"
+                href="JavaScript:void(0)"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >About Us</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <button class="dropdown-item" (click)="scroll(ourvalues)">
+                    Our Values
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" (click)="scroll(ourimpacts)">
+                    Our Impact
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" (click)="scroll(contactus)">
+                    Contact Us
+                  </button>
+                </li>
+                <!-- <li>
+                  <a class="dropdown-item" [routerLink]="['news']">News</a>
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link" [routerLink]="['careers']" role="button"
+                >Careers</a
+              >
+            </li> -->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link"></a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link"></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="arrow_aligner">
+    <img (click)="carouselScroll('left')" src="assets/icons/arrow_backward.svg"/>
+    <img (click)="carouselScroll('right')" src ="assets/icons/arrow_forward.svg" />
+  </div>
+  <div class="carousel_wrapper" id="wrapper" style="margin-top: 59px; height: 100vh; overflow-x:hidden" #home>
+    <div id="container" *ngFor="let item of slides">
+      <div class="text_wrapper" >
+        <div>
+          <p class="title bg_title">
+            {{ item.title }}
+          </p>
+          <p class="text-primary text bg_description">
+            {{ item.description }}
+          </p>
+          <button class="btn" (click)="scroll(contactus)">
+            {{ item.button_string }} >
+          </button>
+        </div>
+      </div>
+      <img style="object-fit:'cover'; width: 100%; height:100%" [src]="item.path">
+    </div>
+  </div>
+
+  <div style="overflow-x: hidden; padding-bottom: 0px">
+    <div class="bg-100">
+      <div class="container" style="padding-top: 4rem">
+        <div class="container" style="padding: 4rem">
+          <div>
+            <div
+              class="bg-holder overlay overlay-elixir"
+              style="
+                background-image: url(/assets/img/gallery/status.jpg);
+                border-radius: 10px;
+              "
+            ></div>
+            <div class="container" style="width: 120%">
+              <div class="d-flex">
+                <span class="me-3">
+                  <img
+                    src="./assets/img/gallery/checkmark.png"
+                    alt="checkmark"
+                    style="width: 60px"
+                /></span>
+                <div class="flex-1">
+                  <h2 class="text-warning fs-3 fs-lg-4">
+                    Take the right step,<br /><span class="text-white"
+                      >do the big things.</span
+                    >
+                  </h2>
+                  <div class="row mt-4 pe-lg-10">
+                    <div
+                      class="overflow-hidden col col-lg-3"
+                      data-zanim-timeline="{}"
+                      data-zanim-trigger="scroll"
+                    >
+                      <div
+                        class="fs-3 fs-lg-4 mb-0 fw-bold text-white mt-lg-5 mt-3 lh-xs"
+                        data-zanim-xs='{"delay":0.1}'
+                        data-countup='{"endValue":164}'
+                      >
+                        {{ clients }}
+                      </div>
+                      <h6 class="fs-0 text-white" data-zanim-xs='{"delay":0.2}'>
+                        Satisfied Clients
+                      </h6>
+                    </div>
+                    <div class="w-100 d-flex d-lg-none"></div>
+                    <div
+                      class="overflow-hidden col-md-3"
+                      data-zanim-timeline="{}"
+                      data-zanim-trigger="scroll"
+                    >
+                      <div
+                        class="fs-3 fs-lg-4 mb-0 fw-bold text-white mt-lg-5 mt-3 lh-xs"
+                        data-zanim-xs='{"delay":0.1}'
+                        data-countup='{"endValue":38}'
+                      >
+                        {{ project }}+
+                      </div>
+                      <h6 class="fs-0 text-white" data-zanim-xs='{"delay":0.2}'>
+                        Projects Delivered
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-100">
+      <div class="container" style="padding-top: 4rem">
+        <div class="text-center mb-6">
+          <h3 class="fs-2 fs-md-3">Offerings</h3>
+          <hr
+            class="short"
+            data-zanim-xs='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+            data-zanim-trigger="scroll"
+          />
+        </div>
+        <div class="row g-0 position-relative mb-4 mb-lg-0">
+          <div
+            class="col-lg-6 py-3 py-lg-0 mb-0 position-relative"
+            style="min-height: 400px"
+          >
+            <div
+              class="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0"
+              style="
+                background-image: url(/assets/img/gallery/engineering_service.jpg);
+              "
+            ></div>
+          </div>
+          <div
+            class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-white rounded-bs-lg rounded-lg-bs-0 rounded-be-lg rounded-lg-be-0 rounded-lg-te-lg"
+          >
+            <div class="elixir-caret d-none d-lg-block"></div>
+            <div class="d-flex align-items-center h-100">
+              <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                <div class="overflow-hidden">
+                  <h5 data-zanim-xs='{"delay":0}'>Engineering Services</h5>
+                </div>
+                <div class="overflow-hidden mt-3">
+                  <ul>
+                    <li>Design</li>
+                    <li>Drawing</li>
+                    <li>Validation</li>
+                    <li>Cost Out</li>
+                    <li>FEA Validation</li>
+                    <li>Manufacturing Support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-0 position-relative mb-lg-0">
+          <div
+            class="col-lg-6 py-3 py-lg-0 mb-0 position-relative order-lg-2"
+            style="min-height: 400px"
+          >
+            <div
+              class="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0 rounded-lg-ts-0"
+              style="
+                background-image: url(/assets/img/gallery/itservice.jpg.jpg);
+              "
+            ></div>
+          </div>
+          <div
+            class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-white rounded-bs-lg rounded-lg-bs-0 rounded-be-lg rounded-lg-be-0"
+          >
+            <div class="elixir-caret d-none d-lg-block"></div>
+            <div class="d-flex align-items-center h-100">
+              <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                <div class="overflow-hidden">
+                  <h5 data-zanim-xs='{"delay":0}'>IT Services</h5>
+                </div>
+                <div class="overflow-hidden mt-3">
+                  <ul>
+                    <li>Design</li>
+                    <li>Resource Planning</li>
+                    <li>Development</li>
+                    <li>Maintanence</li>
+                    <li>Complete SDLC support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div #ourvalues class="values_container">
+      <app-our-values></app-our-values>
+    </div>
+
+    <div class="bg-200 py-6 first_clientsrow" style="overflow-x: hidden">
+      <h3 style="text-align: center; padding: 20px">Our Clients</h3>
+      <div class="container">
+        <div
+          class="row align-items-center"
+          data-zanim-timeline="{}"
+          data-zanim-trigger="scroll"
+        >
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/clients/adm.png"
+              alt="partnerco"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/clients/bd.png"
+              alt="tvc"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/clients/caterpillar.png"
+              alt="arcade"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/clients/emergy.png"
+              alt="bearbrand"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div
+            class="col-4 col-md-2 my-3 overflow-hidden d-flex justify-content-center"
+          >
+            <img
+              class="img-fluid"
+              src="assets/img/clients/gg.png"
+              width="100px"
+              alt="fast brothers"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              width="130px"
+              height="130px"
+              src="assets/img/clients/honda.png"
+              alt="harculis beards"
+              data-zanim-xs="{}"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div
+          class="row align-items-center second_clients_row"
+          data-zanim-timeline="{}"
+          data-zanim-trigger="scroll"
+        >
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/clients/landishyr.png"
+              height="100px"
+              alt="partnerco"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div
+            class="col-4 col-md-2 my-3 overflow-hidden d-flex justify-content-center"
+          >
+            <img
+              class="img-fluid-lt"
+              src="assets/img/clients/lt.png"
+              height="50px"
+              alt="tvc"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/clients/skygen.png"
+              alt="arcade"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/clients/tcs.png"
+              alt="bearbrand"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              height="100px"
+              src="assets/img/clients/wipro.png"
+              alt="fast brothers"
+              data-zanim-xs="{}"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-200 py-4" style="overflow-x: hidden">
+      <h3 style="text-align: center; margin-bottom: 40px; padding: 10px">
+        Our Vendors
+      </h3>
+      <div class="container">
+        <div
+          class="row align-items-center vendors_list"
+          style="margin-top: 20px"
+          data-zanim-timeline="{}"
+          data-zanim-trigger="scroll"
+        >
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid-hy"
+              src="assets/img/vendors/harveynesh.png"
+              height="20px"
+              alt="partnerco"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/vendors/idc.png"
+              alt="tvc"
+              data-zanim-xs="{}"
+            />
+          </div>
+          <div class="col-4 col-md-2 my-3 overflow-hidden">
+            <img
+              class="img-fluid"
+              src="assets/img/vendors/kforce.png"
+              alt="arcade"
+              data-zanim-xs="{}"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="itcontainer" #itsolutions>
+      <app-it-solutions></app-it-solutions>
+    </div>
+    <div #mechsolutions>
+      <app-mech-solutions></app-mech-solutions>
+    </div>
+    <div #itstaffing>
+      <app-it-staffing></app-it-staffing>
+    </div>
+    <div #mechstaffing>
+      <app-mech-staffing></app-mech-staffing>
+    </div>
+    <div #ourimpacts>
+      <app-our-impacts></app-our-impacts>
+    </div>
+    <div #contactus>
+      <app-contact-us></app-contact-us>
+    </div>
+  </div>
+
+  <div *ngIf="request_cookie" class="cookies">
+    <p class="privacy">Your Privacy</p>
+    <p class="terms">
+      We use cookies to make sure that our websites works properly , as well as
+      some 'optional' cookies to personalise content and advertising,provide
+      social media features and analyse how people use our site . By accepting
+      some or all optional cookies you give consent to the processing of our
+      personal data, including transfer to third parties, some in coutries
+      outside of European Economic Area that do not offer the same data
+      protection standards as the country where you live.
+      <!-- You can decide which
+      optional cookies to accept by clicking on 'Manage Settings', where you can
+      also find more information about how your personal data is processed. -->
+      <!-- <br />
+      Further information can be found in our
+      <a style="color: white" href="#">privacy policy.</a> -->
+    </p>
+    <div class="accept_reject_cookies_btns">
+      <button (click)="onAction(true)" class="cookies_btn">
+        Accept all cookies
+      </button>
+
+      <button (click)="onAction(false)" class="reject_cookies">
+        Reject all cookies
+      </button>
+    </div>
+  </div>
+</div>
